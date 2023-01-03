@@ -12,14 +12,6 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  List<int> numbers = [];
-
-  void onClicked() {
-    setState(() {
-      numbers.add(numbers.length);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,23 +20,26 @@ class _AppState extends State<App> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Click Count',
-                style: TextStyle(fontSize: 30),
-              ),
-              for (var n in numbers) Text('$n'),
-              IconButton(
-                iconSize: 40,
-                onPressed: onClicked,
-                icon: const Icon(
-                  Icons.add_box_rounded,
-                ),
-              ),
+            children: const [
+              MyLargeTitle(),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class MyLargeTitle extends StatelessWidget {
+  const MyLargeTitle({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text(
+      'My Large Title',
+      style: TextStyle(fontSize: 30),
     );
   }
 }
